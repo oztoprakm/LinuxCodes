@@ -1,7 +1,6 @@
 LINUX CODES MT
 
 **Terminalde yapılan islemler o an hangi dizinde islem yapiliyorsa o dizinde gecerlidir.**
-deneme
 
 /* ---------------------------- DOSYA ISLEMLERI ---------------------------- */
 
