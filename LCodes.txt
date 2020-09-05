@@ -80,6 +80,10 @@ mkdir mt : "mt isminde bir klasor olusturuldu."
 Mevcut bir klasoru silmek icin kullanilir.
 rmdir mt : "mt isimli klasor silindi."
 
+---> rm -r
+Bos olmayan bir klasoru silmek icin kullanilir. (sudo ile kullanım gerektirebilir.)
+rm -r bin : "bin isimli bos olmayan klasor silindi." 
+
 /**********************************************************************/
 
 ---> mv
