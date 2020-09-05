@@ -104,6 +104,10 @@ Klasor kopyalama komutudur.
 cp -r dene/ mt/ : "dene isimli klasor, mt isminde bir klasor olarak kopyalandi."
 mert@mert-VirtualBox:~/Desktop$ cp -r mt/ /home/mert/Documents/mtcopy2/ : "mt isimli klasor, mtcopy2 isminde bir klasor olarak Documents'e kopyalandi."
 
+---> cp -r *
+Mevcut dizinde yer alan her şeyi kopyalamak için;
+cp -r * /home/mert/Desktop : "mevcut dizinde yer alan klasorlerin tamamı Desktop'a kopyalandi.
+
 /**********************************************************************/
 
 ---> find / -name
