@@ -1,2 +1,221 @@
 # LinuxCodes
 Linux (Ubuntu), file and user operation codes
+LINUX (UBUNTU) CODES MT
+
+
+
+**Terminalde yapılan islemler o an hangi dizinde islem yapiliyorsa o dizinde gecerlidir.**
+
+/* ---------------------------- DOSYA ISLEMLERI ---------------------------- */
+
+/**********************************************************************/
+
+---> echo 
+bir dosyaya yazi yazdirmak veya ekrana çıktı olarak yazdirmak icin kullanilir.
+echo mt > d : "d isimli dosyaya mt yazdirildi"
+echo mt : "terminale mt yazdirir"
+
+echo komutu sadece ilk ornekteki gibi '>' ile kullanılırsa her zaman ilk satira yazar ve ilk satirda var olan veriyi silerek uzerine yazar.
+echo komutu ile her zaman yeni satira yazdirmak icin '>>' ile cift atama kullanilir.
+echo mert >> dene : "dene isimli dosyanın yeni satirina mert yazidirildi. Her zaman yeni bir satira yazmak icin cift atama kullanilir."
+
+/**********************************************************************/
+
+---> echo $BASH_VERSION : Shell versiyonunu ogrenmek icin kullanilir.
+---> $SHELL --version : Shell versiyonunu ogrenmek icin kullanilir.
+
+/**********************************************************************/
+
+---> cd
+terminalde dizin degistirmek icin kullanilir. Hangi dizinde bulunuyorsaniz islemler o dizinde gerceklesir.
+mert@mert-VirtualBox:~$ cd Desktop/ : "home dizininden Desktop dizinine gecis yapildi.
+mert@mert-VirtualBox:~/Desktop$ cd deneme/ : "Desktop dizininden deneme dizinine gecildi."
+mert@mert-VirtualBox:~$ cd Desktop/deneme/ : "Home dizininden deneme dizinine gecildi."
+mert@mert-VirtualBox:~/Desktop$ cd /home/mert/Documents/ : "Desktop dizininden Documents dizinine gecildi."
+
+/**********************************************************************/
+
+---> cat
+dosyada yer alan metni terminale yazdırır.
+cat dene : "dene isimli dosyada yer alan metni terminale yazdirir."
+
+cat komutu ile bir dosyada yer alan metni başka bir dosyaya kopyalayabiliriz.
+cat dene > bos : "dene isimli dosyada yer alan metin, bos isimli dosyaya kopyalandi."
+
+/**********************************************************************/
+
+---> grep
+Dosya icindeki metinden istenilen kelimeleri terminale yazdirmak icin kullanılabilir
+cat dene | grep asd : "dene dosyasinda icinde 'asd' gecen kelimeleri terminale yazdirir."
+cat bos | grep dede > mt : "bos dosyasindaki icinde 'dede' gecen kelimeler mt dosyasina yazdirildi."
+
+/**********************************************************************/
+
+---> ls
+Dizinlerde-klasorlerde yer alan klasor ve dosyalari listelemek icin kullanilir.
+
+ls : "Mevcut dizini listeler."
+mert@mert-VirtualBox:~$ ls Desktop/ : "home dizinindeyken Desktop dizinini listelemek icin
+ls -a : "gizli klasorler de dahil olmak uzere ayrintili liste sunar."
+ls -at : "ayrintili listeyi son kullanilan uygulamaya gore siralar."
+ls -ln : "dosya veya klasorlerde yer alan yetkileri listeler."
+
+/**********************************************************************/
+
+---> touch
+Yeni bir dosya olusturmak icin kullanilir.
+touch mt : "mt isimli bir dosya olusturuldu.
+
+/**********************************************************************/
+
+---> rm
+Mevcut olan bir dosyayi silmek icin kullanilir.
+rm mt : "mt isimli dosya silindi."
+
+/**********************************************************************/
+
+---> mkdir
+Yeni bir klasor olusturmak icin kullanilir.
+mkdir mt : "mt isminde bir klasor olusturuldu."
+
+/**********************************************************************/
+
+---> rmdir
+Mevcut bir klasoru silmek icin kullanilir.
+rmdir mt : "mt isimli klasor silindi."
+
+---> rm -r
+Bos olmayan bir klasoru silmek icin kullanilir. (sudo ile kullanım gerektirebilir.)
+rm -r bin : "bin isimli bos olmayan klasor silindi." 
+
+/**********************************************************************/
+
+---> mv
+istenilen dosyayi veya klasoru belirtilen klasore tasir
+mv mt deneme/ : "mt isimli dosya, deneme isimli klasore tasindi."
+mv deneme/ son/ : "deneme isimli klasor, son isimli klasore tasindi."
+mv deneme/ /home/mert/Desktop/LinuxCodes/ : "deneme isimli klasor LinuxCodes isimli klasore tasindi."
+
+mv komutu ile ayrica klasorun ismini de degistirebiliriz.
+mv deneme/ deneme2/ : "deneme klasorunun ismi deneme2 olarak degistirildi."
+mv mt mt2 : "mt isimli dosyanin ismi mt2 olarak degistirildi."
+
+/**********************************************************************/
+
+---> cp
+Dosya kopyalama komutudur.
+cp mt mtcopy : "mt isimli dosya, mtcopy isminde bir dosya olarak kopyalandi."
+mert@mert-VirtualBox:~/Desktop$ cp mt /home/mert/Documents/mtcopy : "mt isimli dosya, desktop dizininden Documents dizinine mtcopy isminde kopyalandi."
+
+---> cp -r
+Klasor kopyalama komutudur.
+cp -r dene/ mt/ : "dene isimli klasor, mt isminde bir klasor olarak kopyalandi."
+mert@mert-VirtualBox:~/Desktop$ cp -r mt/ /home/mert/Documents/mtcopy2/ : "mt isimli klasor, mtcopy2 isminde bir klasor olarak Documents'e kopyalandi."
+
+---> cp -r *
+Mevcut dizinde yer alan her şeyi kopyalamak için;
+cp -r * /home/mert/Desktop : "mevcut dizinde yer alan klasorlerin tamamı Desktop'a kopyalandi.
+
+/**********************************************************************/
+
+---> find / -name
+Dosya veya klasoru belirtilen isme gore arar.
+find / -name dene : "dene isimli dosya veya klasoru genel olarak her yerde arar."
+
+---> find /home.. / -name
+Dosya veya klasoru belirtilen isme gore ve belirtilen adreste arar.
+find /home/mert/ -name dene : "dene isimli dosya veya klasor home_mert alanında aranır."
+find /home/mert/Desktop/ -name dene : "dene isimle dosya veya klasor home_mert_desktop alanında aranır."
+
+/**********************************************************************/
+
+---> locate
+Dosya veya klasoru isme gore arar. Find daha kapsamlı arama yapmaktadir.
+Locate ile arama yapılacaksa oncesinde DataBase'in mutlaka guncellenmesi gerekmektedir.
+DataBase guncelleme: " sudo updatedb "
+sudo updatedb : "Database guncellenir."
+locate dene : "dene isimli dosya aranir."
+
+/**********************************************************************/
+
+---> tar -cvf
+Dosya veya klasorleri arsivlemek icin kullanilir. "tar -cvf "Arsiv İsmi" "Arsivlenecek Dosya Ismi"
+Dosya ve klasor ayrımını yaparken klasorun sonuna '/' isareti konulur.
+C: arsivlemek icin
+V: arsivlenen dosyayi altta gosterir
+F: arsivlenecek dosyanin adini girmek icin
+
+tar -cvf mtarsiv.tar mtdosya : "mtdosya isimli dosya mtarsiv isminde arsivlendi"
+tar -cvf mtarsivklas.tar mtklas/ : "mtklas isimli klasor mtarsivklas isminde arsivlendi"
+
+**arsiv dosyalari 'rm' komutu ile silinebilir.
+
+/**********************************************************************/
+
+---> tar -xvf
+Arsivlenen klasoru/dosyayi cikarmak icin kullanilir.
+X: arsivden cikarmak icin
+V: arsivden cikanlari listeler
+F: arsiv ismi
+
+tar -xvf mtarsiv.tar : "mtarsiv.tar isim dosya/klasor arsivden cikarildi"
+mert@mert-VirtualBox:~/Desktop$ tar -xvf mtarsiv.tar -C /home/mert/Documents/ : "Desktop dizininde yer alan mtarsiv.tar isimli arsiv, Documents dizinine cikarildi"
+
+/**********************************************************************/
+
+---> nano
+Istenilen belgeyi düzenleme bolumunde acar.
+mert@mert-VirtualBox:~/Desktop/LinuxCodes$ nano LCodes : "LinunCodes'da yer alan LCodes belgesi acildi"
+
+/**********************************************************************/
+
+/* ---------------------------- KULLANICI ISLEMLERI ---------------------------- */
+
+---> users
+sistemde oturum acmıs olan kullanicilari listeler.
+
+---> id -u
+kullanici id'sini gosterir.
+
+---> sudo
+yetkiden dolayi kisitlama gelen islemlerde komutun en basina sudo yazilirsa yonetici olarak yapar ve islemi gerceklestirir.
+
+---> sudo passwd root
+root kullanicisi icin sifre olusturulur. Tum yetkilere erismek icin.
+
+---> passwd 'kullanici ismi'
+mert kullanicisi icin sifre olusturma veya degistirme icin
+passwd mert : "mert kullanicisi icin sifre islemleri"
+
+---> sudo su
+root olarak terminal icerisinde islem yapmanizi saglar (tum yetkiye sahip olunur)
+'exit' komutu ile root kullanicisinden cikilir.
+
+---> su
+terminal üzerinde kullanici degistirmek icin kullanilir.
+su mert2 : "mert2 isimli kullaniciya gecildi, ancak sadece acilan terminalde gecilmistir yani sadece terminal üzerinde islem yapilmaktadir."
+
+---> chmod
+dosyaya/klasore olan yetkileri duzenlemek icin kullanilir.
+u : user
+g : group 
+o : other
+r : read / w : write / x : execute
+chmod u=rwx,g=rwx,o=rwx yetki : "yetki dosyasinda user,group ve other icin tam yetki verildi"
+chmod u=r,g=r,o=rw yetki : "yetki dosyasinde user ve group icin sadece read, other icin read ve write yetkileri verildi."
+
+---> sudo adduser
+yeni bir kullanici eklemek icin kullanilir
+sudo adduser yetkili : "yetkili isminde bir kullanici eklendi."
+
+---> sudo deluser
+mevcut bir kullaniciyi silmek icin kullanilir
+sudo deluser yetkili : "yetkili isimli kullanici kaldirildi"
+
+---> sudo groupadd
+yeni bir grup eklemek icin kullanilir
+sudo groupadd yetkililer : "yetkililier isminde bir grup olusturuldu"
+
+---> sudo groupdel
+mevcut bir grubu silmek icin kullanilir
+sudo groupdel yetkililer : "yetkililer isimli grup kaldirildi"
